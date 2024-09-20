@@ -1,0 +1,84 @@
+
+;; Function multi (multi, funcdef_no=0, decl_uid=2345, cgraph_uid=1, symbol_order=0)
+
+int multi (int a)
+{
+  int i;
+  int r;
+  int D.2358;
+  int _6;
+
+  <bb 2> :
+  r_3 = 1;
+  i_4 = 1;
+  goto <bb 4>; [INV]
+
+  <bb 3> :
+  r_8 = r_1 * i_2;
+  i_9 = i_2 + 1;
+
+  <bb 4> :
+  # r_1 = PHI <r_3(2), r_8(3)>
+  # i_2 = PHI <i_4(2), i_9(3)>
+  if (i_2 <= a_5(D))
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  _6 = r_1;
+
+  <bb 6> :
+<L3>:
+  return _6;
+
+}
+
+
+
+;; Function main (main, funcdef_no=1, decl_uid=2353, cgraph_uid=2, symbol_order=1)
+
+int main ()
+{
+  int fact;
+  int n;
+  int D.2362;
+  int n.0_1;
+  int n.1_2;
+  int _3;
+  int _12;
+  int _14;
+
+  <bb 2> :
+  fact_5 = 1;
+  __builtin_puts (&"please input a number"[0]);
+  scanf ("%d", &n);
+  n.0_1 = n;
+  if (n.0_1 < 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+
+  <bb 3> :
+  __builtin_puts (&"it can\'t be a minus one!"[0]);
+  _14 = 0;
+  // predicted unlikely by early return (on trees) predictor.
+  goto <bb 5>; [INV]
+
+  <bb 4> :
+  fact_10 = multi (fact_5);
+  n.1_2 = n;
+  printf ("%dthe result is%d\xe3\x80\x82\n", n.1_2, fact_10);
+  _12 = 0;
+
+  <bb 5> :
+  # _3 = PHI <_14(3), _12(4)>
+  n ={v} {CLOBBER};
+
+  <bb 6> :
+<L3>:
+  return _3;
+
+}
+
+

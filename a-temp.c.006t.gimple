@@ -1,0 +1,60 @@
+int multi (int a)
+{
+  int D.2358;
+  int r;
+
+  r = 1;
+  {
+    int i;
+
+    i = 1;
+    goto <D.2352>;
+    <D.2351>:
+    r = r * i;
+    i = i + 1;
+    <D.2352>:
+    if (i <= a) goto <D.2351>; else goto <D.2349>;
+    <D.2349>:
+  }
+  D.2358 = r;
+  return D.2358;
+}
+
+
+int main ()
+{
+  int D.2362;
+
+  {
+    int n;
+    int fact;
+
+    try
+      {
+        fact = 1;
+        printf ("please input a number\n");
+        scanf ("%d", &n);
+        n.0_1 = n;
+        if (n.0_1 < 0) goto <D.2360>; else goto <D.2361>;
+        <D.2360>:
+        printf ("it can\'t be a minus one!\n");
+        D.2362 = 0;
+        // predicted unlikely by early return (on trees) predictor.
+        return D.2362;
+        <D.2361>:
+        fact = multi (fact);
+        n.1_2 = n;
+        printf ("%dthe result is%d\xe3\x80\x82\n", n.1_2, fact);
+        D.2362 = 0;
+        return D.2362;
+      }
+    finally
+      {
+        n = {CLOBBER};
+      }
+  }
+  D.2362 = 0;
+  return D.2362;
+}
+
+
